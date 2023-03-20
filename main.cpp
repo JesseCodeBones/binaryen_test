@@ -43,6 +43,7 @@ struct TestWalker
     }
     Parent::doWalkFunction(func);
     for (auto &basicBlock : basicBlocks) {
+      std::cout << std::endl;
       std::cout << "basic block ->" << basicBlock.get() << std::endl;
       for (auto &in : basicBlock->in) {
         std::cout << "block in-" << in << std::endl;
@@ -57,6 +58,7 @@ struct TestWalker
       }
       std::cout << " --- block content \n";
       std::cout << "<- basic block" << std::endl;
+      std::cout << std::endl;
     }
     // dumpCFG("jesse dump");
   }
