@@ -32,7 +32,8 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
+    - name: generate wasm
+      run: ${{github.workspace}}/build/bin/wasm-opt ${{github.workspace}}/test.wat -o ${{github.workspace}}/build/out.wasm -osm ${{github.workspace}}/build/out.wasm.map -g -q
     - name: Test
       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.

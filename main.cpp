@@ -67,8 +67,7 @@ struct TestWalker
 int main(int, char **) {
   wasm::Module module;
   wasm::ModuleReader reader;
-  reader.read("/home/jesse/workspace/binaryen_test/build/out.wasm", module,
-              "/home/jesse/workspace/binaryen_test/build/out.wasm.map");
+  reader.read("out.wasm", module, "out.wasm.map");
   TestWalker walker;
   wasm::ModuleUtils::iterDefinedFunctions(
       module, [&](BinaryenFunctionRef func) {
